@@ -20,7 +20,10 @@
         iframe.contentWindow.postMessage(message, "*");
       }
 
-      // Call the function to send the message
-      sendMessageToSF();
+      // Call the function to send the message      
+      document.getElementById('sfCommunity').onload = function() {
+            console.log("iFrame fully loaded, now sending message...");
+            sendMessageToSF();
+        };
     </script>
 </body></html>
