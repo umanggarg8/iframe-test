@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <body>anchor tag in iframe
-  <iframe title="Test iFrame"
+  <iframe id="sfCommunity" title="Test iFrame"
             class="_frame-container_pg4sv_52"
             src="https://testssookta-dev-ed.develop.my.site.com/serviceportal/"
             loading="lazy"
@@ -14,4 +14,17 @@
 <body><div>
 			  <a target="_blank" c-kbccloginlogoviewer_kbccloginlogoviewer="" href="https://testssookta-dev-ed.develop.my.site.com/serviceportal/login/">click here</a></div></body>
 </iframe>
+<script>
+      // Function to send a message to the Salesforce Community
+      function sendMessageToSF() {
+        var iframe = document.getElementById("sfCommunity");
+        var message = { name: "test", value: "Hello, Salesforce!" };
+
+        // Use postMessage to send the data to the iframe (Salesforce Community)
+        iframe.contentWindow.postMessage(message, "https://testssookta-dev-ed.develop.my.site.com/serviceportal");
+      }
+
+      // Call the function to send the message
+      sendMessageToSF();
+    </script>
 </body></html>
