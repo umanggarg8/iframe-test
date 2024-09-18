@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <body>anchor tag in iframe
-  <iframe title="Test iFrame"
-            class="_frame-container_pg4sv_52"
-            src="https://testssookta-dev-ed.develop.my.site.com/serviceportal/login/"
-            loading="lazy"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen=""
-            data-testid="frame-container-test-id"
-            style="width: 1000px; height: 1000px; border: none; position: absolute; top: 0px; left: 0px;">
-<!DOCTYPE html>
-<html lang="en-US"><head></head>
-<body><div>
-			  <a target="_blank" c-kbccloginlogoviewer_kbccloginlogoviewer="" href="https://testssookta-dev-ed.develop.my.site.com/serviceportal/login/">click here</a></div></body>
-</iframe>
-</body></html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Salesforce Community</title>
+  <script type="text/javascript">
+    function openSalesforceCommunity() {
+      // Define the URL of your Salesforce Community
+      var communityUrl = 'https://testssookta-dev-ed.develop.my.site.com/serviceportal/login/'; 
+
+      // Set the size and features of the pop-up window
+      var windowFeatures = "width=800,height=600,scrollbars=yes,resizable=yes";
+
+      // Open a new pop-up window with the Salesforce Community URL
+      var newWindow = window.open(communityUrl, '_blank', windowFeatures);
+
+      // Focus on the new pop-up window if it was successfully opened
+      if (newWindow) {
+        newWindow.focus();
+      } else {
+        // If the pop-up was blocked, alert the user
+        alert('Pop-up was blocked by the browser. Please allow pop-ups for this site.');
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Open Salesforce Community with Okta SSO</h1>
+
+  <!-- Button to trigger the pop-up -->
+  <button onclick="openSalesforceCommunity()">Login to Salesforce Community</button>
+</body>
+</html>
+
