@@ -1,33 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-  <script>
-      // Lightning origin where the LWC Component is hosted
-      const LIGHTNING_ORIGIN = "https://testssookta-dev-ed.develop.my.site.com/serviceportal/";
-      var urlParam = "testValue";
-      var message = {
+  <body>anchor tag in iframe
+  <iframe id="sfCommunity" title="Test iFrame"
+            class="_frame-container_pg4sv_52"
+            src="https://testssookta-dev-ed.develop.my.site.com/serviceportal/"
+            loading="lazy"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen=""
+            data-testid="frame-container-test-id"
+            style="width: 1000px; height: 1000px; border: none; position: absolute; top: 0px; left: 0px;">
+  </iframe>
+  </body>
+<noscript>
+ <iframe src="https://testssookta-dev-ed.develop.my.site.com/serviceportal/" width="100%" height="500" type="text/html" frameborder="0" allowTransparency="true" style="border: 0"></iframe>
+</noscript>
+
+<script type="text/javascript">
+ var form = 'https://testssookta-dev-ed.develop.my.site.com/serviceportal/';
+ var params = window.location.search;
+ var thisScript = document.scripts[document.scripts.length - 1];
+ var iframe = document.createElement('iframe');
+ var params = 'test'
+ iframe.setAttribute('src', form + params);
+ iframe.setAttribute('width', '100%');
+ iframe.setAttribute('height', 500);
+ iframe.setAttribute('type', 'text/html');
+ iframe.setAttribute('frameborder', 0);
+ iframe.setAttribute('allowTransparency', 'true');
+ iframe.style.border = '0';
+
+ thisScript.parentElement.replaceChild(iframe, thisScript);
+   function sendMessageToSF() {
+            var iframe = document.getElementById("sfCommunity");
+            var urlParam = "testValue"; // Example parameter, you can fetch this dynamically
+
+            // Create a message object with the parameter
+            var message = {
                 paramName: "myParam",
                 paramValue: urlParam
             };
-      // Post message from VF page to LWC
-      function postMessageToLWC() {
-        window.parent.postMessage(message, "*");
-        console.log("page: Message sent");
-      }
-    </script>
-  </head>
-  <body>
-    <div class="slds-scope">
-      <div class="myapp">
-         Page
-        <div class="slds-grid slds-wrap">
-          <div class="slds-col slds-size--1-of-1 slds-small-size--1-of-2 slds-medium-size--1-of-4">
-            <button
-              class="slds-button slds-button_brand"
-              onclick="postMessageToLWC()"
-            >Post To LWC</button>
-          </div>
-        </div>
-      </div>
-    </div>
-</body></html>
+
+            console.log('Sending message:', message);
+            // Send message to iFrame with origin of Salesforce community
+           // iframe.contentWindow.postMessage(message, "https://testssookta-dev-ed.develop.my.site.com/serviceportal/");
+              window.parent.postMessage(message, "*");
+              console.log("Message sent to Salesforce community");
+
+        }
+
+        // Wait for the iFrame to load before sending the message
+        document.getElementById("sfCommunity").onload = function() {
+            console.log("iFrame fully loaded, sending message...");
+            sendMessageToSF();
+        };
+</script></html>
