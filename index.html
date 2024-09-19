@@ -22,6 +22,7 @@
                 paramValue: urlParam
             };
 
+            console.log('Sending message:', message);
             // Send message to iFrame with origin of Salesforce community
             iframe.contentWindow.postMessage(message, "https://testssookta-dev-ed.develop.my.site.com/serviceportal/");
             console.log("Message sent to Salesforce community");
