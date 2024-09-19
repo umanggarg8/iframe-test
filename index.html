@@ -11,7 +11,7 @@
             };
       // Post message from VF page to LWC
       function postMessageToLWC() {
-        window.parent.postMessage(message, LIGHTNING_ORIGIN);
+        window.parent.postMessage(message, "*");
         console.log("page: Message sent");
       }
     </script>
