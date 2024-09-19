@@ -9,7 +9,7 @@
             allowfullscreen=""
             data-testid="frame-container-test-id"
             style="width: 1000px; height: 1000px; border: none; position: absolute; top: 0px; left: 0px;">
-  </iframe>
+  </iframe></body>
  <script>
         // Function to send a message to the iFrame
         function sendMessageToSF() {
@@ -25,7 +25,7 @@
             console.log('Sending message:', message);
             // Send message to iFrame with origin of Salesforce community
            // iframe.contentWindow.postMessage(message, "https://testssookta-dev-ed.develop.my.site.com/serviceportal/");
-              window.parent.postMessage(message, "*");
+              window.parent.postMessage({ paramName: "paramValue" }, '*');
               console.log("Message sent to Salesforce community");
 
         }
@@ -36,4 +36,4 @@
             sendMessageToSF();
         };
     </script>
-</body></html>
+</html>
