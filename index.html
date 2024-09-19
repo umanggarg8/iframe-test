@@ -9,31 +9,21 @@
             allowfullscreen=""
             data-testid="frame-container-test-id"
             style="width: 1000px; height: 1000px; border: none; position: absolute; top: 0px; left: 0px;">
-  </iframe></body>
- <script>
-        // Function to send a message to the iFrame
-        function sendMessageToSF() {
-            var iframe = document.getElementById("sfCommunity");
-            var urlParam = "testValue"; // Example parameter, you can fetch this dynamically
+  </iframe>
+ <div id="widget-container"></div></body>
 
-            // Create a message object with the parameter
-            var message = {
-                paramName: "myParam",
-                paramValue: urlParam
-            };
-
-            console.log('Sending message:', message);
-            // Send message to iFrame with origin of Salesforce community
-           // iframe.contentWindow.postMessage(message, "https://testssookta-dev-ed.develop.my.site.com/serviceportal/");
-              window.parent.postMessage(message, '*');
-              console.log("Message sent to Salesforce community");
-
-        }
-
-        // Wait for the iFrame to load before sending the message
-        document.getElementById("sfCommunity").onload = function() {
-            console.log("iFrame fully loaded, sending message...");
-            sendMessageToSF();
-        };
-    </script>
+<script>
+  const signIn = new OktaSignIn({baseUrl: 'https://trial-2651012-admin.okta.com/'});
+  signIn.renderEl({
+    el: '#widget-container'
+  }, function success(res) {
+    if (res.status === 'SUCCESS') {
+      console.log('Do something with this sessionToken', res.session.token);
+    } else {
+    // The user can be in another authentication state that requires further action.
+    // For more information about these states, see:
+    //   https://github.com/okta/okta-signin-widget#rendereloptions-success-error
+    }
+  });
+</script>
 </html>
