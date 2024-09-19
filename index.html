@@ -10,27 +10,9 @@
             data-testid="frame-container-test-id"
             style="width: 1000px; height: 1000px; border: none; position: absolute; top: 0px; left: 0px;">
   </iframe>
-  </body>
-<noscript>
- <iframe src="https://testssookta-dev-ed.develop.my.site.com/serviceportal/" width="100%" height="500" type="text/html" frameborder="0" allowTransparency="true" style="border: 0"></iframe>
-</noscript>
-
-<script type="text/javascript">
- var form = 'https://testssookta-dev-ed.develop.my.site.com/serviceportal/';
- var params = window.location.search;
- var thisScript = document.scripts[document.scripts.length - 1];
- var iframe = document.createElement('iframe');
- var params = 'test';
- iframe.setAttribute('src', form + params);
- iframe.setAttribute('width', '100%');
- iframe.setAttribute('height', 500);
- iframe.setAttribute('type', 'text/html');
- iframe.setAttribute('frameborder', 0);
- iframe.setAttribute('allowTransparency', 'true');
- iframe.style.border = '0';
-
- thisScript.parentElement.replaceChild(iframe, thisScript);
-   function sendMessageToSF() {
+ <script>
+        // Function to send a message to the iFrame
+        function sendMessageToSF() {
             var iframe = document.getElementById("sfCommunity");
             var urlParam = "testValue"; // Example parameter, you can fetch this dynamically
 
@@ -53,4 +35,5 @@
             console.log("iFrame fully loaded, sending message...");
             sendMessageToSF();
         };
-</script></html>
+    </script>
+</body></html>
